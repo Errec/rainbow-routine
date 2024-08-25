@@ -1,9 +1,17 @@
-import { Text, View } from 'react-native';
+import { Link } from 'expo-router'
+import React from 'react'
+import { Pressable, Text, View } from 'react-native'
 
-export default function HomeScreen() {
+const App = () => {
   return (
-    <View className='flex-1 justify-center items-center'>
-      <Text>Hello!</Text>
+    <View className='flex-1 items-center justify-center'>
+      <Pressable>
+        <Link href={'/login'}>
+          <Text>Login</Text>
+        </Link>
+      </Pressable>
     </View>
-  );
+  )
 }
+
+export default App
