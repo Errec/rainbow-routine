@@ -26,7 +26,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-      {/* Add more tab screens here as needed */}
     </Tabs>
   );
 }
