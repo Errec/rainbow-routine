@@ -32,6 +32,16 @@ jobs:
     - name: Run TypeScript type check
       run: npm run ts:check
 
+    - name: Install ImageMagick
+      run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+    - name: Create placeholder images
+      run: |
+        mkdir -p assets/images
+        convert -size 1024x1024 xc:transparent assets/images/icon.png
+        convert -size 1024x1024 xc:transparent assets/images/splash.png
+        convert -size 1024x1024 xc:transparent assets/images/adaptive-icon.png
+
     - name: Install Expo CLI
       run: npm install -g expo-cli
 
