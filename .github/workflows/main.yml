@@ -44,7 +44,7 @@ jobs:
           ${{ runner.OS }}-expo-
 
     - name: Check Expo project
-      run: npx expo doctor
+      run: npx expo-doctor
 
     - name: Build Expo web
       run: npx expo export:web
