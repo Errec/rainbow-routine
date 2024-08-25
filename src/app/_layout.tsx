@@ -1,7 +1,10 @@
-import { ClerkProvider } from "@clerk/clerk-expo";
 import { Slot } from 'expo-router';
-import * as SecureStore from 'expo-secure-store';
 import React from 'react';
+
+// Commented out Clerk-related code
+/*
+import { ClerkProvider } from "@clerk/clerk-expo";
+import * as SecureStore from 'expo-secure-store';
 
 const tokenCache = {
   async getToken(key: string) {
@@ -19,14 +22,16 @@ const tokenCache = {
     }
   },
 };
+*/
 
 export default function RootLayout() {
   return (
-    <ClerkProvider 
-      publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}
-      tokenCache={tokenCache}
-    >
+    // Commented out ClerkProvider
+    // <ClerkProvider 
+    //   publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!}
+    //   tokenCache={tokenCache}
+    // >
       <Slot />
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }

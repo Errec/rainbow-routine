@@ -1,3 +1,33 @@
+import { useRouter } from 'expo-router';
+import React from 'react';
+import { Pressable, Text, View } from 'react-native';
+
+const HomeScreen = () => {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    console.log('Simulating logout');
+    router.replace('/login');
+  };
+
+  return (
+    <View className="flex-1 items-center justify-center bg-white">
+      <Text className="text-3xl font-bold">Home</Text>
+      
+      <Pressable 
+        onPress={handleLogout}
+        className="absolute bottom-10 bg-red-500 px-8 py-3 rounded-full"
+      >
+        <Text className="text-white font-semibold">Logout</Text>
+      </Pressable>
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+// Original Clerk-based code (commented out)
+/*
 import { useAuth } from '@clerk/clerk-expo';
 import { useRouter } from 'expo-router';
 import React from 'react';
@@ -31,3 +61,4 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+*/

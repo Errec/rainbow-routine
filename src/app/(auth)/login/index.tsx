@@ -1,3 +1,40 @@
+import { useRouter } from 'expo-router'
+import React from 'react'
+import { Pressable, Text, View } from 'react-native'
+
+const LoginScreen = () => {
+  const router = useRouter()
+
+  const onOAuthPress = React.useCallback((provider: string) => {
+    console.log(`Simulating ${provider} login`)
+    router.replace('/(tabs)')
+  }, [router])
+
+  return (
+    <View className="flex-1 items-center justify-center bg-gray-100">
+      <Text className="text-2xl mb-8 font-bold">Welcome</Text>
+      
+      <Pressable 
+        onPress={() => onOAuthPress('Google')}
+        className="bg-white px-8 py-3 rounded-full shadow-md mb-4 w-64 flex-row items-center justify-center"
+      >
+        <Text className="text-black font-semibold">Sign in with Google</Text>
+      </Pressable>
+      
+      <Pressable 
+        onPress={() => onOAuthPress('Apple')}
+        className="bg-black px-8 py-3 rounded-full shadow-md w-64 flex-row items-center justify-center"
+      >
+        <Text className="text-white font-semibold">Sign in with Apple</Text>
+      </Pressable>
+    </View>
+  )
+}
+
+export default LoginScreen
+
+// Original Clerk-based code (commented out)
+/*
 import { useOAuth } from '@clerk/clerk-expo'
 import * as Linking from 'expo-linking'
 import { useRouter } from 'expo-router'
@@ -62,3 +99,4 @@ const LoginScreen = () => {
 }
 
 export default LoginScreen
+*/
