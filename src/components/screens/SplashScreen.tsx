@@ -59,7 +59,7 @@ const SplashScreenComponent = () => {
 
   return (
     <ImageBackground
-      source={require('../../../assets/images/splash1.png')}
+      source={require('../../../assets/images/splash.png')}
       className="flex-1 justify-center items-center"
       resizeMode="cover"
     >
