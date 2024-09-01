@@ -1,5 +1,6 @@
+import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, ImageBackground, Text, View } from 'react-native';
 import Animated, {
   Easing,
   interpolateColor,
@@ -14,11 +15,13 @@ const RAINBOW_COLORS = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '
 
 const AnimatedText = Animated.createAnimatedComponent(Text);
 
-const SplashScreen = () => {
+const SplashScreenComponent = () => {
   const progress = useSharedValue(0);
   const yOffsets = RAINBOW_COLORS.map(() => useSharedValue(0));
 
   useEffect(() => {
+    SplashScreen.preventAutoHideAsync();
+
     progress.value = withRepeat(
       withTiming(1, { duration: 3000, easing: Easing.linear }),
       -1,
@@ -32,9 +35,13 @@ const SplashScreen = () => {
         true
       );
     });
+
+    setTimeout(async () => {
+      await SplashScreen.hideAsync();
+    }, 3000);
   }, []);
 
-  const letterStyles = RAINBOW_COLORS.map((_, index) => 
+  const letterStyles = RAINBOW_COLORS.map((_, index) =>
     useAnimatedStyle(() => {
       const colorIndex = (index + Math.floor(progress.value * RAINBOW_COLORS.length)) % RAINBOW_COLORS.length;
       const nextColorIndex = (colorIndex + 1) % RAINBOW_COLORS.length;
@@ -51,49 +58,43 @@ const SplashScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.rainbowContainer}>
-        {RAINBOW_COLORS.map((_, index) => (
-          <AnimatedText
-            key={index}
-            style={[styles.rainbowLetter, letterStyles[index]]}
-          >
-            {index === 0 ? 'R' : index === 1 ? 'A' : index === 2 ? 'I' : index === 3 ? 'N' : index === 4 ? 'B' : index === 5 ? 'O' : 'W'}
-          </AnimatedText>
-        ))}
+    <ImageBackground
+      source={require('../../../assets/images/splash.png')}
+      className="flex-1 justify-center items-center"
+      resizeMode="cover"
+    >
+      <View className="flex-1 justify-center items-center">
+        <View className="flex-row mb-5 bg-blue-200 rounded-md p-2">
+          {RAINBOW_COLORS.map((_, index) => (
+            <AnimatedText
+              key={index}
+              style={[
+                letterStyles[index], 
+                { 
+                  textShadowColor: 'rgba(0, 0, 0, 0.8)', 
+                  textShadowOffset: { width: 3, height: 3 }, 
+                  textShadowRadius: 4 
+                }
+              ]}
+              className="text-5xl font-bold mx-1"
+            >
+              {index === 0 ? 'R' : index === 1 ? 'A' : index === 2 ? 'I' : index === 3 ? 'N' : index === 4 ? 'B' : index === 5 ? 'O' : 'W'}
+            </AnimatedText>
+          ))}
+        </View>
+        <Text
+          className="bg-orange-200 rounded-md p-2 text-4xl font-bold text-blue-500"
+          style={{
+            textShadowColor: 'rgba(0, 0, 0, 0.75)',
+            textShadowOffset: { width: 2, height: 2 },
+            textShadowRadius: 3,
+          }}
+        >
+          Routine
+        </Text>
       </View>
-      <Text style={styles.routineText}>Routine</Text>
-    </View>
+    </ImageBackground>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  rainbowContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-  },
-  rainbowLetter: {
-    fontSize: 50,
-    fontWeight: 'bold',
-    marginHorizontal: 5,
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 3,
-  },
-  routineText: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    color: '#1E90FF', // Dodger Blue
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 3,
-  },
-});
-
-export default SplashScreen;
+export default SplashScreenComponent;

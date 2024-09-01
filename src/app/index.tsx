@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect, useState } from 'react';
-import SplashScreen from '../components/screens/SplashScreen';
+import SplashScreenComponent from '../components/screens/SplashScreen';
 
 // Commented out Clerk import for development
 // import { useAuth } from '@clerk/clerk-expo';
@@ -12,12 +13,21 @@ export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    const splashDuration = 5000; // 5 seconds
-    const splashTimer = setTimeout(() => {
-      setShowSplash(false);
-    }, splashDuration);
+    // Prevent the splash screen from auto-hiding
+    SplashScreen.preventAutoHideAsync();
 
-    return () => clearTimeout(splashTimer);
+    const prepareApp = async () => {
+      // Simulate loading time or wait for necessary async tasks
+      await new Promise(resolve => setTimeout(resolve, 3500)); // Replace this with actual loading logic
+
+      // Hide the splash screen
+      await SplashScreen.hideAsync();
+
+      // Set the splash screen state to false
+      setShowSplash(false);
+    };
+
+    prepareApp();
   }, []);
 
   useEffect(() => {
@@ -37,7 +47,7 @@ export default function Home() {
   }, [showSplash, router]);
 
   if (showSplash) {
-    return <SplashScreen />;
+    return <SplashScreenComponent />;
   }
 
   return null;
