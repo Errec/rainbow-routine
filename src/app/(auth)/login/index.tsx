@@ -11,8 +11,8 @@ const LoginScreen = () => {
   }, [router])
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-100">
-      <Text className="text-2xl mb-8 font-bold">Welcome</Text>
+    <View className="flex-1 items-center justify-center">
+      <Text className="text-2xl mb-8 font-bold text-gray-800">Welcome</Text>
       
       <Pressable 
         onPress={() => onOAuthPress('Google')}
@@ -78,8 +78,8 @@ const LoginScreen = () => {
   }, [router])
 
   return (
-    <View className="flex-1 items-center justify-center bg-gray-100">
-      <Text className="text-2xl mb-8 font-bold">Welcome</Text>
+    <View className="flex-1 items-center justify-center">
+      <Text className="text-2xl mb-8 font-bold text-gray-800">Welcome</Text>
       
       <Pressable 
         onPress={() => onOAuthPress(startGoogleOAuthFlow)}
