@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import React from 'react'
 import { Pressable, Text, View } from 'react-native'
@@ -12,20 +13,26 @@ const LoginScreen = () => {
 
   return (
     <View className="flex-1 items-center justify-center">
-      <Text className="text-2xl mb-8 font-bold text-gray-800">Welcome</Text>
+      <Text className="text-3xl mb-8 font-bold text-gray-800">Welcome</Text>
       
       <Pressable 
         onPress={() => onOAuthPress('Google')}
-        className="bg-white px-8 py-3 rounded-full shadow-md mb-4 w-64 flex-row items-center justify-center"
+        className="bg-white px-8 py-3 rounded-full shadow-md mb-4 w-72 flex-row items-center"
       >
-        <Text className="text-black font-semibold">Sign in with Google</Text>
+        <View className="flex-1 flex-row items-center justify-between px-2">
+          <Text className="text-black font-semibold text-lg">Sign in with Google</Text>
+          <Ionicons name="logo-google" size={24} color="black" />
+        </View>
       </Pressable>
       
       <Pressable 
         onPress={() => onOAuthPress('Apple')}
-        className="bg-black px-8 py-3 rounded-full shadow-md w-64 flex-row items-center justify-center"
+        className="bg-black px-8 py-3 rounded-full shadow-md w-72 flex-row items-center"
       >
-        <Text className="text-white font-semibold">Sign in with Apple</Text>
+        <View className="flex-1 flex-row items-center justify-between px-2">
+          <Text className="text-white font-semibold text-lg">Sign in with Apple</Text>
+          <Ionicons name="logo-apple" size={24} color="white" />
+        </View>
       </Pressable>
     </View>
   )
