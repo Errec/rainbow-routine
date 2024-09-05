@@ -28,29 +28,12 @@ jobs:
       run: npx expo install react-native-svg@15.2.0
     - name: Run TypeScript type check
       run: npm run ts:check
-    - name: Install ImageMagick
-      run: sudo apt-get update && sudo apt-get install -y imagemagick
-    - name: Create placeholder images
-      run: |
-        mkdir -p assets/images
-        convert -size 1024x1024 xc:transparent assets/images/icon.png
-        convert -size 1024x1024 xc:transparent assets/images/splash.png
-        convert -size 1024x1024 xc:transparent assets/images/adaptive-icon.png
-    - name: Install Expo CLI
-      run: npm install -g expo-cli
-    - name: Cache Expo modules
-      uses: actions/cache@v4
-      with:
-        path: ~/.expo
-        key: ${{ runner.OS }}-expo-${{ hashFiles('**/package.json') }}
-        restore-keys: |
-          ${{ runner.OS }}-expo-
     - name: Check Expo project
       run: npx expo-doctor
-    - name: Build Expo web
-      run: npx expo export:web
+    - name: Build Expo project
+      run: npx expo export --platform web
     - name: Upload web build artifact
       uses: actions/upload-artifact@v4
       with:
         name: web-build
-        path: web-build
+        path: dist
