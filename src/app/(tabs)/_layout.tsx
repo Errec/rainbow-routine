@@ -9,12 +9,12 @@ export default function TabsLayout() {
         tabBarActiveTintColor: '#3b82f6', // Tailwind blue-500
         tabBarInactiveTintColor: '#6b7280', // Tailwind gray-500
         tabBarStyle: {
-          backgroundColor: '#ffffff', // Tailwind white
+          backgroundColor: 'rgba(255, 255, 255, 0.7)', // Semi-transparent white
         },
         headerStyle: {
-          backgroundColor: '#3b82f6', // Tailwind blue-500
+          backgroundColor: 'transparent', // Make header transparent
         },
-        headerTintColor: '#ffffff', // Tailwind white
+        headerTintColor: '#000000', // Black text for better visibility
       }}
     >
       <Tabs.Screen
