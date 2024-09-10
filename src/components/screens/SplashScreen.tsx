@@ -1,89 +1,36 @@
-import * as SplashScreen from 'expo-splash-screen'
-import React, { useEffect } from 'react'
-import { ImageBackground, Text, View } from 'react-native'
-import Animated, {
-  Easing,
-  interpolateColor,
-  useAnimatedStyle,
-  useSharedValue,
-  withRepeat,
-  withTiming,
-} from 'react-native-reanimated'
+import { useLetterAnimation } from '@hooks/useLetterAnimation';
+import * as SplashScreen from 'expo-splash-screen';
+import React, { useEffect } from 'react';
+import { ImageBackground, Text, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 
-const RAINBOW_COLORS = [
-  '#FF0000',
-  '#FF7F00',
-  '#FFFF00',
-  '#00FF00',
-  '#0000FF',
-  '#8B00FF',
-  '#FF00FF',
-]
-
-const AnimatedText = Animated.createAnimatedComponent(Text)
-
-const useLetterAnimation = (index: number) => {
-  const progress = useSharedValue(0)
-  const yOffset = useSharedValue(0)
-
-  useEffect(() => {
-    progress.value = withRepeat(
-      withTiming(1, { duration: 3000, easing: Easing.linear }),
-      -1,
-      true
-    )
-    yOffset.value = withRepeat(
-      withTiming(5, {
-        duration: 1000 + index * 100,
-        easing: Easing.inOut(Easing.ease),
-      }),
-      -1,
-      true
-    )
-  }, [index, progress, yOffset])
-
-  const style = useAnimatedStyle(() => {
-    const colorIndex =
-      (index + Math.floor(progress.value * RAINBOW_COLORS.length)) %
-      RAINBOW_COLORS.length
-    const nextColorIndex = (colorIndex + 1) % RAINBOW_COLORS.length
-    const color = interpolateColor(
-      progress.value * RAINBOW_COLORS.length -
-        Math.floor(progress.value * RAINBOW_COLORS.length),
-      [0, 1],
-      [RAINBOW_COLORS[colorIndex], RAINBOW_COLORS[nextColorIndex]]
-    )
-    return {
-      color: index === 3 ? '#FF00FF' : color, // Keep 'N' magenta
-      transform: [{ translateY: yOffset.value }],
-    }
-  })
-
-  return style
-}
+const AnimatedText = Animated.createAnimatedComponent(Text);
 
 const SplashScreenComponent = () => {
-  const letterStyles = [
-    useLetterAnimation(0),
-    useLetterAnimation(1),
-    useLetterAnimation(2),
-    useLetterAnimation(3),
-    useLetterAnimation(4),
-    useLetterAnimation(5),
-    useLetterAnimation(6),
-  ]
+  const style0 = useLetterAnimation(0);
+  const style1 = useLetterAnimation(1);
+  const style2 = useLetterAnimation(2);
+  const style3 = useLetterAnimation(3);
+  const style4 = useLetterAnimation(4);
+  const style5 = useLetterAnimation(5);
+  const style6 = useLetterAnimation(6);
+
+  const letterStyles = [style0, style1, style2, style3, style4, style5, style6];
 
   useEffect(() => {
-    SplashScreen.preventAutoHideAsync()
+    const prepareSplashScreen = async () => {
+      await SplashScreen.preventAutoHideAsync();
+      setTimeout(async () => {
+        await SplashScreen.hideAsync();
+      }, 3000);
+    };
 
-    setTimeout(async () => {
-      await SplashScreen.hideAsync()
-    }, 3000)
-  }, [])
+    prepareSplashScreen();
+  }, []);
 
   return (
     <ImageBackground
-      source={require('../../../assets/images/splash.png')}
+      source={require('@assets/images/splash.png')}
       className='flex-1 justify-center items-center'
       resizeMode='cover'>
       <View className='flex-1 justify-center items-center'>
@@ -115,7 +62,7 @@ const SplashScreenComponent = () => {
         </Text>
       </View>
     </ImageBackground>
-  )
-}
+  );
+};
 
-export default SplashScreenComponent
+export default SplashScreenComponent;

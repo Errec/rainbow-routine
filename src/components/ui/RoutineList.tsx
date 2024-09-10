@@ -1,7 +1,7 @@
-import React from 'react'
-import { FlatList, View } from 'react-native'
-import { z } from 'zod'
-import RoutineListItem from './RoutineListItem'
+import React from 'react';
+import { FlatList, View } from 'react-native';
+import { z } from 'zod';
+import RoutineListItem from './RoutineListItem';
 
 const RoutineList: React.FC = () => {
   const data = [
@@ -9,18 +9,18 @@ const RoutineList: React.FC = () => {
     { id: 2, name: 'Routine 2' },
     { id: 3, name: 'Routine 3' },
     // Add more routine objects as needed
-  ]
+  ];
 
   const routineSchema = z.object({
     id: z.number(),
     name: z.string(),
-  })
+  });
 
-  const validatedData = routineSchema.array().parse(data)
+  const validatedData = routineSchema.array().parse(data);
 
   const renderItem = ({ item }: { item: { id: number; name: string } }) => (
     <RoutineListItem id={item.id} name={item.name} type={''} />
-  )
+  );
 
   return (
     <View>
@@ -30,7 +30,7 @@ const RoutineList: React.FC = () => {
         keyExtractor={(item) => item.id.toString()}
       />
     </View>
-  )
-}
+  );
+};
 
-export default RoutineList
+export default RoutineList;

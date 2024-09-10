@@ -1,18 +1,18 @@
-import { Ionicons } from '@expo/vector-icons'
-import { useRouter } from 'expo-router'
-import React from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import React from 'react';
+import { Pressable, Text, View } from 'react-native';
 
 const LoginScreen = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const onOAuthPress = React.useCallback(
     (provider: string) => {
-      console.log(`Simulating ${provider} login`)
-      router.replace('/(tabs)')
+      console.log(`Simulating ${provider} login`);
+      router.replace('/(tabs)');
     },
     [router]
-  )
+  );
 
   return (
     <View className='flex-1 items-center justify-center'>
@@ -40,10 +40,10 @@ const LoginScreen = () => {
         </View>
       </Pressable>
     </View>
-  )
-}
+  );
+};
 
-export default LoginScreen
+export default LoginScreen;
 
 // Original Clerk-based code (commented out)
 /*

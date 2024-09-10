@@ -1,18 +1,18 @@
-import { useRouter } from 'expo-router'
-import React from 'react'
-import { ImageBackground, Pressable, Text, View } from 'react-native'
+import { useRouter } from 'expo-router';
+import React from 'react';
+import { ImageBackground, Pressable, Text, View } from 'react-native';
 
 const HomeScreen = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleLogout = () => {
-    console.log('Simulating logout')
-    router.replace('/login')
-  }
+    console.log('Simulating logout');
+    router.replace('/login');
+  };
 
   return (
     <ImageBackground
-      source={require('../../../assets/images/bg01.png')}
+      source={require('@assets/images/bg01.png')}
       style={{ flex: 1, width: '100%', height: '100%' }}
       resizeMode='cover'>
       <View style={{ flex: 1, backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
@@ -27,10 +27,10 @@ const HomeScreen = () => {
         </View>
       </View>
     </ImageBackground>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
 
 // Original Clerk-based code (commented out)
 /*
