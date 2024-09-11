@@ -1,44 +1,49 @@
-import { Ionicons } from '@expo/vector-icons'
-import { useRouter } from 'expo-router'
-import React from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import React from 'react';
+import { Pressable, Text, View } from 'react-native';
 
 const LoginScreen = () => {
-  const router = useRouter()
+  const router = useRouter();
 
-  const onOAuthPress = React.useCallback((provider: string) => {
-    console.log(`Simulating ${provider} login`)
-    router.replace('/(tabs)')
-  }, [router])
+  const onOAuthPress = React.useCallback(
+    (provider: string) => {
+      console.log(`Simulating ${provider} login`);
+      router.replace('/(tabs)');
+    },
+    [router]
+  );
 
   return (
-    <View className="flex-1 items-center justify-center">
-      <Text className="text-3xl mb-8 font-bold text-gray-800">Welcome</Text>
-      
-      <Pressable 
+    <View className='flex-1 items-center justify-center'>
+      <Text className='text-3xl mb-8 font-bold text-gray-800'>Welcome</Text>
+
+      <Pressable
         onPress={() => onOAuthPress('Google')}
-        className="bg-white px-8 py-3 rounded-full shadow-md mb-4 w-72 flex-row items-center"
-      >
-        <View className="flex-1 flex-row items-center justify-between px-2">
-          <Text className="text-black font-semibold text-lg">Sign in with Google</Text>
-          <Ionicons name="logo-google" size={24} color="black" />
+        className='bg-white px-8 py-3 rounded-full shadow-md mb-4 w-72 flex-row items-center'>
+        <View className='flex-1 flex-row items-center justify-between px-2'>
+          <Text className='text-black font-semibold text-lg'>
+            Sign in with Google
+          </Text>
+          <Ionicons name='logo-google' size={24} color='black' />
         </View>
       </Pressable>
-      
-      <Pressable 
+
+      <Pressable
         onPress={() => onOAuthPress('Apple')}
-        className="bg-black px-8 py-3 rounded-full shadow-md w-72 flex-row items-center"
-      >
-        <View className="flex-1 flex-row items-center justify-between px-2">
-          <Text className="text-white font-semibold text-lg">Sign in with Apple</Text>
-          <Ionicons name="logo-apple" size={24} color="white" />
+        className='bg-black px-8 py-3 rounded-full shadow-md w-72 flex-row items-center'>
+        <View className='flex-1 flex-row items-center justify-between px-2'>
+          <Text className='text-white font-semibold text-lg'>
+            Sign in with Apple
+          </Text>
+          <Ionicons name='logo-apple' size={24} color='white' />
         </View>
       </Pressable>
     </View>
-  )
-}
+  );
+};
 
-export default LoginScreen
+export default LoginScreen;
 
 // Original Clerk-based code (commented out)
 /*

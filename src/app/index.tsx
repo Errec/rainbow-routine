@@ -1,7 +1,7 @@
+import SplashScreenComponent from '@/components/screens/SplashScreen';
 import { useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect, useState } from 'react';
-import SplashScreenComponent from '../components/screens/SplashScreen';
 
 // Commented out Clerk import for development
 // import { useAuth } from '@clerk/clerk-expo';
@@ -18,7 +18,7 @@ export default function Home() {
 
     const prepareApp = async () => {
       // Simulate loading time or wait for necessary async tasks
-      await new Promise(resolve => setTimeout(resolve, 3500)); // Replace this with actual loading logic
+      await new Promise((resolve) => setTimeout(resolve, 3500)); // Replace this with actual loading logic
 
       // Hide the splash screen
       await SplashScreen.hideAsync();

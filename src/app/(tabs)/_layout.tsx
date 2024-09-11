@@ -15,14 +15,13 @@ export default function TabsLayout() {
           backgroundColor: 'transparent', // Make header transparent
         },
         headerTintColor: '#000000', // Black text for better visibility
-      }}
-    >
+      }}>
       <Tabs.Screen
-        name="index"
+        name='index'
         options={{
           title: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size} color={color} />
+            <Ionicons name='home' size={size} color={color} />
           ),
         }}
       />
