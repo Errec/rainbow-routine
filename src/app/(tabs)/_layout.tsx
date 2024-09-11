@@ -14,6 +14,7 @@ export default function TabsLayout() {
         headerStyle: {
           backgroundColor: 'transparent', // Make header transparent
         },
+        headerTransparent: true, // This ensures the header is truly transparent
         headerTintColor: '#000000', // Black text for better visibility
       }}>
       <Tabs.Screen
