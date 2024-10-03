@@ -16,13 +16,14 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 
-[] detailed card tab
-[] grid tab
-[] search grid
-[] store
-[] card list
-[] routine flow tab
-[] daily routine items collection
-[] multi language
-[] error boundary
-[] zod
+[ ] detailed card tab
+[ ] grid tab
+[ ] search grid
+[ ] store
+[ ] card list
+[ ] routine flow tab
+[ ] daily routine items collection
+[ ] multi language
+[ ] error boundary
+[ ] zod
+[ ] react query - cache management
