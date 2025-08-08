@@ -18,7 +18,11 @@ Rainbow Routine is an early-stage Augmentative and Alternative Communication (AA
    ```bash
    npm install
    ```
-3. Start the development server:
+3. Copy `.env.example` to `.env.local` and fill in the required values:
+   ```bash
+   cp .env.example .env.local
+   ```
+4. Start the development server:
    ```bash
    npx expo start
    ```
