@@ -1,14 +1,10 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { useQuery } from '@tanstack/react-query';
 import RoutineListItem from '../molecules/RoutineListItem';
-import { fetchRoutines, Routine } from '../../api';
+import { Routine, useRoutines } from '../../api';
 
 const RoutineList: React.FC = () => {
-  const { data, error, isLoading } = useQuery<Routine[]>({
-    queryKey: ['routines'],
-    queryFn: fetchRoutines,
-  });
+  const { data, error, isLoading } = useRoutines();
 
   if (isLoading) {
     return (
