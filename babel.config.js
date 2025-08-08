@@ -1,3 +1,6 @@
+require('ts-node/register/transpile-only');
+require('tsconfig-paths/register');
+
 module.exports = function (api) {
   api.cache(true);
   return {
