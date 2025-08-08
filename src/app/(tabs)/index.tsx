@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { ImageBackground, Pressable, Text, View } from 'react-native';
-import { useAuth } from '@/auth/provider';
+import { useAuth } from '@features/auth/provider';
 
 const HomeScreen = () => {
   const { signOut } = useAuth();

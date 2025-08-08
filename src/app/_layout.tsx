@@ -1,7 +1,7 @@
 import { Slot } from 'expo-router';
 import React from 'react';
 import { ImageBackground, View } from 'react-native';
-import { AuthProvider } from '@/auth/provider';
+import { AuthProvider } from '@features/auth/provider';
 
 export default function RootLayout() {
   return (
