@@ -72,10 +72,5 @@ eas build
 
 ## Roadmap
 
-- Detailed card tab for symbol-based communication
-- Grid navigation with search
-- Asset store and card list management
-- Routine flow tab for daily schedules
-- Multilingual support
-- Error boundaries and enhanced validation with Zod
-- React Query for caching and data management
+See [ROADMAP.md](ROADMAP.md) for upcoming milestones and their status.
+
