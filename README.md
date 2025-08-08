@@ -5,12 +5,14 @@ Rainbow Routine is an early-stage Augmentative and Alternative Communication (AA
 ![Splash screen](assets/images/splash.png)
 
 ## Architecture Overview
+
 - **Navigation:** Expo Router with screens located under the `app` directory.
 - **UI Components:** Reusable UI in `components` and shared constants in `constants`.
 - **Styling:** [NativeWind](https://www.nativewind.dev/) for Tailwind-like classes.
 - **Animation & Validation:** React Native Reanimated animations and schema validation with [Zod](https://zod.dev/).
 
 ## Environment Setup
+
 1. Ensure you have Node.js 18+ and npm installed.
 2. Install dependencies:
    ```bash
@@ -22,21 +24,26 @@ Rainbow Routine is an early-stage Augmentative and Alternative Communication (AA
    ```
 
 ### Linting & Type Checks
+
 ```bash
 npm run lint
 npm run ts:check
 ```
 
 ### Building
+
 Use [EAS Build](https://docs.expo.dev/eas/) for production binaries:
+
 ```bash
 eas build
 ```
 
 ## Environment Variables
+
 - `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` – required to enable Clerk authentication (optional; currently commented out in code).
 
 ## Roadmap
+
 - Detailed card tab for symbol-based communication
 - Grid navigation with search
 - Asset store and card list management
