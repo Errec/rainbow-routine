@@ -1,9 +1,11 @@
 # Rainbow Routine Whitepaper
 
 ## One-liner
+
 Rainbow Routine is an Augmentative and Alternative Communication (AAC) app offering symbol grids, quick phrases, and text entry. It is fully customizable, supports multiple input methods, text‑to‑speech, cloud sync, and multilingual interfaces.
 
 ## Goals
+
 - Provide fast, low-friction communication.
 - Enable editable and shareable page sets across devices.
 - First-class accessibility and offline functionality.
@@ -11,6 +13,7 @@ Rainbow Routine is an Augmentative and Alternative Communication (AAC) app offer
 - Privacy-first design with enterprise-grade sync.
 
 ## Navigation & Flow
+
 - Onboarding: choose page set, access method, language/voice, optional sync login.
 - App shell: bottom tabs with per-tab stack navigation.
 - Core words: color-coded grid with persistent message bar.
@@ -22,6 +25,7 @@ Rainbow Routine is an Augmentative and Alternative Communication (AAC) app offer
 - Deep links and shortcuts.
 
 ## Feature Set
+
 - Page sets: Core First, Motor Plan, Text, Scanning, Aphasia.
 - Symbol and text modes.
 - Multiple access methods: touch, switch, scanning, eye-gaze.
@@ -30,9 +34,10 @@ Rainbow Routine is an Augmentative and Alternative Communication (AAC) app offer
 - Multilingual interface and TTS.
 - Assistant integrations.
 
-*Repository status: project scaffolding is in place; features above are under active development.*
+_Repository status: project scaffolding is in place; features above are under active development._
 
 ## Architecture
+
 - **App Layer:** Expo managed workflow with Expo Router.
 - **UI:** NativeWind, Reanimated, Gesture Handler, FlashList for grids, SVG symbols.
 - **State:** lightweight UI store plus server cache layer (planned).
@@ -43,6 +48,7 @@ Rainbow Routine is an Augmentative and Alternative Communication (AAC) app offer
 - **Testing/CI:** unit, accessibility, E2E tests; EAS builds and OTA updates.
 
 ## Data Model (high level)
+
 ```
 User { id, locale, voices[], accessPrefs, shareKeys }
 PageSet { id, name, type, locale, theme, gridSpec }
@@ -52,9 +58,11 @@ Symbol { id, pack, key, uri, altText }
 Schedule { id, steps[], alarms }
 Share { pageSetId, members[], role }
 ```
+
 Telemetry is opt-in and redacted.
 
 ## Accessibility Checklist
+
 - Focusable cells and large targets.
 - High-contrast and color-blind friendly themes.
 - Screen reader labels and haptic/audio cues.
@@ -62,6 +70,7 @@ Telemetry is opt-in and redacted.
 - Eye-gaze dwell timers and adjustable key repeat.
 
 ## Tech Stack Options
+
 - React Native (Expo).
 - Navigation via Expo Router.
 - NativeWind for styling.
@@ -78,16 +87,19 @@ Telemetry is opt-in and redacted.
 - CI/CD through EAS Build and Expo Updates.
 
 ## Performance Targets
+
 - Cold start to first utterance <2s on mid-range devices.
 - Grid rendering under 16ms/frame with symbol caching.
 - Lazy-load heavy assets and virtualize lists.
 
 ## Privacy & Compliance
+
 - Opt-in telemetry; no utterance content sent by default.
 - End-to-end encryption for shared page sets.
 - Data residency toggle; support for GDPR/LGPD/COPPA/FERPA.
 
 ## Success Metrics
+
 - Time to first spoken phrase.
 - Setup time to first customized page set.
 - Crash-free users percentage.
@@ -95,6 +107,7 @@ Telemetry is opt-in and redacted.
 - Accessibility audit pass rates.
 
 ## Risks & Mitigations
+
 - Eye-gaze variability: abstracted input adapter, dwell fallback, vendor SDK isolation.
 - Symbol licensing: ship open set, licensed packs via keys.
 - Sync conflicts: optimistic UI with reconciliation or CRDT.
@@ -102,6 +115,7 @@ Telemetry is opt-in and redacted.
 - Vendor lock-in: backend repository pattern for swappable services.
 
 ## Roadmap
+
 1. **MVP:** core words, quick phrases, topics, keyboard, TTS, local edit/save, high-contrast themes.
 2. **Sync & Share:** accounts, backups, caregiver roles, import/export.
 3. **Access Features:** scan mode, switch control, assistant integrations.
