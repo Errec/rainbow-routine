@@ -1,4 +1,5 @@
 import { RAINBOW_COLORS } from '@/constants/colors';
+import { colors } from '@/theme';
 import { useEffect } from 'react';
 import {
   Easing,
@@ -41,7 +42,7 @@ export const useLetterAnimation = (index: number) => {
       [RAINBOW_COLORS[colorIndex], RAINBOW_COLORS[nextColorIndex]]
     );
     return {
-      color: index === 3 ? '#FF00FF' : color, // Keep 'N' magenta
+      color: index === 3 ? colors.magenta : color, // Keep 'N' magenta
       transform: [{ translateY: yOffset.value }],
     };
   });

@@ -7,6 +7,7 @@ export const colors = {
   white50: 'rgba(255, 255, 255, 0.5)',
   black80: 'rgba(0, 0, 0, 0.8)',
   black75: 'rgba(0, 0, 0, 0.75)',
+  magenta: '#ff00ff',
 };
 
 export const fontSizes = {
