@@ -1,6 +1,6 @@
 # Contributing to Rainbow Routine
 
-Thanks for helping Rainbow Routine shine brighter!
+This guide outlines the process for contributing to the project.
 
 ## Branch Strategy
 
@@ -13,10 +13,10 @@ Thanks for helping Rainbow Routine shine brighter!
 - We follow [Conventional Commits](https://www.conventionalcommits.org/).
 - Examples: `feat: add glitter to progress bar`, `fix: stop crash on rainy days`, `docs: clarify install steps`.
 
-## Pre-commit
+## Pre-commit Hooks and Testing
 
-- Git hooks via Husky run linting and tests on commit.
-- Before committing, make sure the hooks pass by running:
+- Husky runs `lint-staged` on each commit to check formatting and linting.
+- Before committing, verify changes locally:
   ```bash
   npm run lint
   npm test
