@@ -2,13 +2,10 @@ import SplashScreenComponent from '@/components/screens/SplashScreen';
 import { useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect, useState } from 'react';
-
-// Commented out Clerk import for development
-// import { useAuth } from '@clerk/clerk-expo';
+import { useAuth } from '@/auth/provider';
 
 export default function Home() {
-  // Commented out Clerk authentication for development
-  // const { isLoaded, isSignedIn } = useAuth();
+  const { isLoaded, isSignedIn } = useAuth();
   const router = useRouter();
   const [showSplash, setShowSplash] = useState(true);
 
@@ -31,20 +28,14 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!showSplash) {
-      console.log('Navigating to login screen');
-      router.replace('/login');
-
-      // Original Clerk authentication logic (commented out)
-      /*
-      if (isLoaded && !isSignedIn) {
-        router.replace('/login');
-      } else if (isLoaded && isSignedIn) {
+    if (!showSplash && isLoaded) {
+      if (isSignedIn) {
         router.replace('/(tabs)');
+      } else {
+        router.replace('/login');
       }
-      */
     }
-  }, [showSplash, router]);
+  }, [showSplash, isLoaded, isSignedIn, router]);
 
   if (showSplash) {
     return <SplashScreenComponent />;
