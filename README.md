@@ -56,6 +56,7 @@ eas build
 
 - `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` – Clerk publishable key when using Clerk authentication.
 - `EXPO_PUBLIC_USE_CLERK` – set to `true` to enable Clerk; otherwise a local stub auth will be used.
+- `SENTRY_DSN` – Sentry DSN for error tracking.
 
 ## Roadmap
 
