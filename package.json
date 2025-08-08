@@ -1,6 +1,16 @@
 {
-  "name": "my-app",
+  "name": "rainbow-routine",
   "version": "1.0.0",
+  "description": "Cross-platform app for managing color-coded daily routines",
+  "author": {
+    "name": "Raniro Coelho",
+    "email": "ranirocoelho@gmail.com"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranirocoelho/rainbow-routine"
+  },
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
