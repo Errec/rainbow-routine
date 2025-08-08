@@ -1,6 +1,7 @@
-const { colors, fontSizes } = require('./src/theme');
+import type { Config } from 'tailwindcss';
+import { colors, fontSizes } from './src/theme';
 
-module.exports = {
+const config: Config = {
   content: [
     './src/app/**/*.{js,jsx,ts,tsx}',
     './src/components/**/*.{js,jsx,ts,tsx}',
@@ -16,3 +17,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+export default config;
