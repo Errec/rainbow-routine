@@ -1,15 +1,15 @@
 # Rainbow Routine
 
-Rainbow Routine is an early-stage Augmentative and Alternative Communication (AAC) app built with Expo and React Native. It focuses on fast, customizable communication through symbol grids, text entry, and routine building.
+Rainbow Routine is an early-stage Augmentative and Alternative Communication (AAC) app built with Expo and React Native. Think of it as a color-coded sidekick that helps autistic kids (and their grown‑ups) turn everyday chaos into a rainbow-splashed plan. It focuses on fast, customizable communication through symbol grids, text entry, and routine building—all with a smile.
 
 ![Splash screen](assets/images/splash.png)
 
 ## Architecture Overview
 
-- **Navigation:** Expo Router with screens located under the `app` directory.
-- **UI Components:** Reusable UI in `components` and shared constants in `constants`.
-- **Styling:** [NativeWind](https://www.nativewind.dev/) for Tailwind-like classes.
-- **Animation & Validation:** React Native Reanimated animations and schema validation with [Zod](https://zod.dev/).
+- **Navigation:** Expo Router with screens located under the `app` directory (like a treasure map, but with more JSX).
+- **UI Components:** Reusable UI in `components` and shared constants in `constants` because copy‑pasting is so last season.
+- **Styling:** [NativeWind](https://www.nativewind.dev/) for Tailwind-like classes that flutter faster than you can say "rainbow".
+- **Animation & Validation:** React Native Reanimated animations and schema validation with [Zod](https://zod.dev/) to keep both pixels and data behaving nicely.
 
 ## Environment Setup
 
@@ -26,6 +26,16 @@ Rainbow Routine is an early-stage Augmentative and Alternative Communication (AA
    ```bash
    npx expo start
    ```
+
+### Testing
+
+Even rainbows need checkups. We use Jest (via `jest-expo`) to keep our colors inside the lines:
+
+```bash
+npm test
+```
+
+For more tips on keeping the sky clear, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ### Linting & Type Checks
 
