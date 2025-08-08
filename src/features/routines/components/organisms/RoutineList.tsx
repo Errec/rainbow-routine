@@ -1,38 +1,45 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
-import { z } from 'zod';
+import { FlatList, Text, View } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
 import RoutineListItem from '../molecules/RoutineListItem';
-
-interface Routine {
-  id: number;
-  name: string;
-  type?: string;
-}
+import { fetchRoutines, Routine } from '../../api';
 
 const RoutineList: React.FC = () => {
-  const data: Routine[] = [
-    { id: 1, name: 'Routine 1', type: 'Workout' },
-    { id: 2, name: 'Routine 2', type: 'Meditation' },
-    { id: 3, name: 'Routine 3', type: 'Nutrition' },
-    // Add more routine objects as needed
-  ];
-
-  const routineSchema = z.object({
-    id: z.number(),
-    name: z.string(),
-    type: z.string().optional(),
+  const { data, error, isLoading } = useQuery<Routine[]>({
+    queryKey: ['routines'],
+    queryFn: fetchRoutines,
   });
 
-  const validatedData: Routine[] = routineSchema.array().parse(data);
+  if (isLoading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <View>
+        <Text>Failed to load routines.</Text>
+      </View>
+    );
+  }
 
   const renderItem = ({ item }: { item: Routine }) => (
-    <RoutineListItem id={item.id} name={item.name} type={item.type} />
+    <RoutineListItem
+      id={item.id}
+      name={item.name}
+      type={item.type}
+      image={item.image}
+      text={item.text}
+    />
   );
 
   return (
     <View>
       <FlatList<Routine>
-        data={validatedData}
+        data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />

@@ -5,6 +5,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/lib/queryClient';
 import { initSentry } from '@/lib/sentry';
 import { AuthProvider } from '@features/auth/provider';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 initSentry();
 
@@ -17,7 +18,9 @@ export default function RootLayout() {
           className='flex-1'
           resizeMode='cover'>
           <View className='flex-1 bg-white/50'>
-            <Slot />
+            <ErrorBoundary>
+              <Slot />
+            </ErrorBoundary>
           </View>
         </ImageBackground>
       </AuthProvider>
