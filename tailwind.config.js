@@ -1,3 +1,5 @@
+const { colors, fontSizes } = require('./src/theme');
+
 module.exports = {
   content: [
     './src/app/**/*.{js,jsx,ts,tsx}',
@@ -5,6 +7,8 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors,
+      fontSize: fontSizes,
       fontFamily: {
         rmono: ['Roboto-Mono', 'sans-serif'],
       },

@@ -1,21 +1,22 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { colors } from '@/theme';
 
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#3b82f6', // Tailwind blue-500
-        tabBarInactiveTintColor: '#6b7280', // Tailwind gray-500
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.gray500,
         tabBarStyle: {
-          backgroundColor: 'rgba(255, 255, 255, 0.7)', // Semi-transparent white
+          backgroundColor: colors.white70,
         },
         headerStyle: {
-          backgroundColor: 'transparent', // Make header transparent
+          backgroundColor: 'transparent',
         },
-        headerTransparent: true, // This ensures the header is truly transparent
-        headerTintColor: '#000000', // Black text for better visibility
+        headerTransparent: true,
+        headerTintColor: colors.black,
       }}>
       <Tabs.Screen
         name='index'
