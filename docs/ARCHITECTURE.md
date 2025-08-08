@@ -8,15 +8,23 @@
 - **constants/** – shared constants like `RAINBOW_COLORS`.
 - **features/** – domain bundles that group screens, state, and an atomic component structure.
 
-## Feature-Based Atomic Structure
+## Feature Modules and Atomic Layers
 
-Within `src/features`, each feature encapsulates its own logic and UI. Components inside a feature are broken down following atomic design:
+`src/features` groups code by domain. Each feature owns its screens, hooks, state and an internal component library. Components are organised into atomic design layers:
 
-- **atoms** – the smallest visual building blocks.
-- **molecules** – atoms combined into slightly more complex widgets.
-- **organisms** – assemblies of molecules that form distinct sections of a screen.
+- **atoms** – minimal visual elements such as buttons or icons.
+- **molecules** – small components composed of atoms.
+- **organisms** – sections built from molecules.
 
-This approach keeps routines, auth flows, and future features isolated yet composable.
+This structure keeps features encapsulated while allowing pieces to be composed across the app.
+
+## State and Data Management
+
+Local state is handled with [Zustand](https://github.com/pmndrs/zustand) stores scoped to each feature. Remote data and caching are managed by [TanStack Query](https://tanstack.com/query/latest), which coordinates fetching and background updates. Together they keep UI components focused on rendering.
+
+## Theme Token Management
+
+Design tokens for colours and typography live in `src/theme` and feed both Tailwind and runtime styles. Maintaining tokens in one place ensures consistent theming across components and simplifies future dark-mode or branding work.
 
 ## Technologies
 
