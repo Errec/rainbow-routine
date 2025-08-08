@@ -1,43 +1,58 @@
-# Rainbow Routine
+# Rainbow Routine 🌈
 
-Rainbow Routine is an early-stage Augmentative and Alternative Communication (AAC) app built with Expo and React Native. Think of it as a color-coded sidekick that helps autistic kids (and their grown‑ups) turn everyday chaos into a rainbow-splashed plan. It focuses on fast, customizable communication through symbol grids, text entry, and routine building—all with a smile.
+Rainbow Routine is an open-source Augmentative and Alternative Communication (AAC) app built with Expo and React Native. It helps autistic children and caregivers manage daily communication through configurable symbol grids, text input, and routine planning.
 
 ![Splash screen](assets/images/splash.png)
 
-## Architecture Overview
+## Project Goal and Key Features
 
-- **Navigation:** Expo Router with screens located under the `app` directory (like a treasure map, but with more JSX).
-- **UI Components:** Reusable UI in `components` and shared constants in `constants` because copy‑pasting is so last season.
-- **Styling:** [NativeWind](https://www.nativewind.dev/) for Tailwind-like classes that flutter faster than you can say "rainbow".
-- **Animation & Validation:** React Native Reanimated animations and schema validation with [Zod](https://zod.dev/) to keep both pixels and data behaving nicely.
+- Provide a customizable AAC tool for everyday communication.
+- Support symbol grids, text entry, and routine planning.
+- Run on iOS, Android, and web through Expo.
 
-## Environment Setup
+## Folder Structure and Architecture Summary
 
-1. Ensure you have Node.js 18+ and npm installed.
+- `src/app` – Expo Router screens.
+- `src/components` – reusable UI components.
+- `src/constants` – shared constants.
+- `src/features` – domain features and state management.
+- `src/hooks` – custom hooks.
+- `src/lib` – utilities and libraries.
+- `src/theme` – theme configuration.
+- `assets` – images and other static assets.
+- `docs` – additional documentation.
+
+## Environment Variables and Configuration
+
+1. Ensure Node.js 18+ and npm are installed.
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Copy `.env.example` to `.env.local` and fill in the required values:
+3. Create an environment file:
    ```bash
    cp .env.example .env.local
    ```
-4. Start the development server:
-   ```bash
-   npx expo start
-   ```
+4. Set the following variables:
+   - `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` – Clerk publishable key.
+   - `EXPO_PUBLIC_USE_CLERK` – set to `true` to enable Clerk authentication.
+   - `SENTRY_DSN` – Sentry DSN for error tracking.
+
+## Commands 🛠️
+
+### Development
+
+```bash
+npm start
+```
 
 ### Testing
-
-Even rainbows need checkups. We use Jest (via `jest-expo`) to keep our colors inside the lines:
 
 ```bash
 npm test
 ```
 
-For more tips on keeping the sky clear, see [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-### Linting & Type Checks
+### Linting and Type Checking
 
 ```bash
 npm run lint
@@ -46,17 +61,14 @@ npm run ts:check
 
 ### Building
 
-Use [EAS Build](https://docs.expo.dev/eas/) for production binaries:
-
 ```bash
 eas build
 ```
 
-## Environment Variables
+## Contribution Guidelines and Licensing
 
-- `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` – Clerk publishable key when using Clerk authentication.
-- `EXPO_PUBLIC_USE_CLERK` – set to `true` to enable Clerk; otherwise a local stub auth will be used.
-- `SENTRY_DSN` – Sentry DSN for error tracking.
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for workflow and commit conventions.
+- Licensed under the [MIT License](LICENSE).
 
 ## Roadmap
 
@@ -67,3 +79,4 @@ eas build
 - Multilingual support
 - Error boundaries and enhanced validation with Zod
 - React Query for caching and data management
+
