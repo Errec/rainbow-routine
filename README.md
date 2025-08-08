@@ -67,9 +67,14 @@ eas build
 
 ## Contribution Guidelines and Licensing
 
-- See [CONTRIBUTING.md](CONTRIBUTING.md) for workflow and commit conventions.
+- See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for workflow and commit conventions.
 - Licensed under the [MIT License](LICENSE).
 
 ## Roadmap
 
-See [ROADMAP.md](ROADMAP.md) for upcoming milestones and their status.
+See [ROADMAP.md](docs/ROADMAP.md) for upcoming milestones and their status.
+
+## Additional Documentation
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Whitepaper](docs/WHITEPAPER.md)
