@@ -12,13 +12,10 @@ const RoutineListItemPropsSchema = z.object({
 
 type RoutineListItemProps = z.infer<typeof RoutineListItemPropsSchema>;
 
-const RoutineListItem: React.FC<RoutineListItemProps> = ({
-  name,
-  type,
-  image,
-  id,
-  text,
-}) => {
+const RoutineListItem: React.FC<RoutineListItemProps> = (props) => {
+  const { name, type, image, id, text } =
+    RoutineListItemPropsSchema.parse(props);
+
   return (
     <View>
       {image && <Image source={{ uri: image }} />}
