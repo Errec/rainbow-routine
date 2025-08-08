@@ -1,11 +1,6 @@
 /* eslint-disable react/display-name */
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-  ReactNode,
-} from 'react';
+import React, { useCallback, ReactNode } from 'react';
+import { useAuthStore } from './store';
 
 let AuthProvider: React.ComponentType<{ children: ReactNode }>;
 let useAuth: () => {
@@ -54,33 +49,12 @@ if (process.env.EXPO_PUBLIC_USE_CLERK === 'true') {
   useAuth = clerkUseAuth;
   useOAuth = clerkUseOAuth;
 } else {
-  type AuthContextType = {
-    isSignedIn: boolean;
-    signIn: () => void;
-    signOut: () => void;
-  };
-
-  const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-  AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [isSignedIn, setIsSignedIn] = useState(false);
-    const signIn = () => setIsSignedIn(true);
-    const signOut = () => setIsSignedIn(false);
-    return (
-      <AuthContext.Provider value={{ isSignedIn, signIn, signOut }}>
-        {children}
-      </AuthContext.Provider>
-    );
-  };
+  AuthProvider = ({ children }: { children: ReactNode }) => <>{children}</>;
   (AuthProvider as React.FC).displayName = 'AuthProvider';
 
   useAuth = () => {
-    const ctx = useContext(AuthContext);
-    if (!ctx) {
-      throw new Error('useAuth must be used within AuthProvider');
-    }
-    const { isSignedIn, signOut, signIn } = ctx;
-    return { isLoaded: true, isSignedIn, signOut, signIn };
+    const { isSignedIn, signIn, signOut } = useAuthStore();
+    return { isLoaded: true, isSignedIn, signIn, signOut };
   };
 
   useOAuth = () => {
