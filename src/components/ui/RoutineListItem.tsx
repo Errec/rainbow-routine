@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 const RoutineListItemPropsSchema = z.object({
   name: z.string(),
-  type: z.string(),
+  type: z.string().optional(),
   image: z.string().optional(),
   id: z.number(),
   text: z.string().optional(),
@@ -23,7 +23,7 @@ const RoutineListItem: React.FC<RoutineListItemProps> = ({
     <View>
       {image && <Image source={{ uri: image }} />}
       <Text>{name}</Text>
-      <Text>{type}</Text>
+      {type && <Text>{type}</Text>}
       {text && <Text>{text}</Text>}
     </View>
   );
