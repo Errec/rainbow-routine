@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Alert, Pressable, Text, View } from 'react-native';
 import { useOAuth } from '@features/auth/provider';
 
 const LoginScreen = () => {
@@ -17,9 +17,15 @@ const LoginScreen = () => {
     async (
       startOAuthFlow: () => Promise<{ createdSessionId: string | null }>
     ) => {
-      const { createdSessionId } = await startOAuthFlow();
-      if (createdSessionId) {
-        router.replace('/(tabs)');
+      try {
+        const { createdSessionId } = await startOAuthFlow();
+        if (createdSessionId) {
+          router.replace('/(tabs)');
+        }
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Please try again.';
+        Alert.alert('Authentication failed', message);
       }
     },
     [router]
