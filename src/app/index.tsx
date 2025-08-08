@@ -2,7 +2,7 @@ import SplashScreenComponent from '@/components/screens/SplashScreen';
 import { useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '@/auth/provider';
+import { useAuth } from '@features/auth/provider';
 
 export default function Home() {
   const { isLoaded, isSignedIn } = useAuth();

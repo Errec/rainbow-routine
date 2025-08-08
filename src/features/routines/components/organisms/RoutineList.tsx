@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import { z } from 'zod';
-import RoutineListItem from './RoutineListItem';
+import RoutineListItem from '../molecules/RoutineListItem';
 
 interface Routine {
   id: number;

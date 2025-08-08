@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { useOAuth } from '@/auth/provider';
+import { useOAuth } from '@features/auth/provider';
 
 const LoginScreen = () => {
   const router = useRouter();
