@@ -79,4 +79,3 @@ eas build
 - Multilingual support
 - Error boundaries and enhanced validation with Zod
 - React Query for caching and data management
-
