@@ -40,7 +40,8 @@ eas build
 
 ## Environment Variables
 
-- `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` – required to enable Clerk authentication (optional; currently commented out in code).
+- `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` – Clerk publishable key when using Clerk authentication.
+- `EXPO_PUBLIC_USE_CLERK` – set to `true` to enable Clerk; otherwise a local stub auth will be used.
 
 ## Roadmap
 
