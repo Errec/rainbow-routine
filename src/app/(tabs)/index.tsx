@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import React from 'react';
 import { ImageBackground, Pressable, Text, View } from 'react-native';
 import { useAuth } from '@features/auth/provider';
+import { colors } from '@/theme';
 
 const HomeScreen = () => {
   const { signOut } = useAuth();
@@ -17,7 +18,7 @@ const HomeScreen = () => {
       source={require('@assets/images/bg01.png')}
       style={{ flex: 1, width: '100%', height: '100%' }}
       resizeMode='cover'>
-      <View style={{ flex: 1, backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+      <View style={{ flex: 1, backgroundColor: colors.white50 }}>
         <View className='flex-1 items-center justify-center'>
           <Text className='text-3xl font-bold text-gray-800'>Home</Text>
 

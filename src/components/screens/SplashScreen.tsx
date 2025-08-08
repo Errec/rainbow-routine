@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 import { ImageBackground, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
+import { colors } from '@/theme';
 
 const AnimatedText = Animated.createAnimatedComponent(Text);
 
@@ -40,7 +41,7 @@ const SplashScreenComponent = () => {
               style={[
                 letterStyles[index],
                 {
-                  textShadowColor: 'rgba(0, 0, 0, 0.8)',
+                  textShadowColor: colors.black80,
                   textShadowOffset: { width: 3, height: 3 },
                   textShadowRadius: 4,
                 },
@@ -53,7 +54,7 @@ const SplashScreenComponent = () => {
         <Text
           className='bg-orange-200 rounded-md p-2 text-4xl font-bold text-blue-500'
           style={{
-            textShadowColor: 'rgba(0, 0, 0, 0.75)',
+            textShadowColor: colors.black75,
             textShadowOffset: { width: 2, height: 2 },
             textShadowRadius: 3,
           }}>
