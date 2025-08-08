@@ -26,6 +26,7 @@
     "@clerk/clerk-expo": "^2.2.1",
     "@expo/metro-runtime": "~3.2.3",
     "@expo/vector-icons": "^14.0.1",
+    "@tanstack/react-query": "^5.84.2",
     "@types/react": "~18.2.45",
     "expo": "~51.0.6",
     "expo-av": "~14.0.4",
@@ -48,7 +49,8 @@
     "react-native-svg-transformer": "^1.5.0",
     "react-native-web": "~0.19.10",
     "typescript": "~5.3.3",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
