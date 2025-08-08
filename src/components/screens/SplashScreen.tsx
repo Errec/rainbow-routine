@@ -7,25 +7,24 @@ import Animated from 'react-native-reanimated';
 const AnimatedText = Animated.createAnimatedComponent(Text);
 
 const SplashScreenComponent = () => {
-  const style0 = useLetterAnimation(0);
-  const style1 = useLetterAnimation(1);
-  const style2 = useLetterAnimation(2);
-  const style3 = useLetterAnimation(3);
-  const style4 = useLetterAnimation(4);
-  const style5 = useLetterAnimation(5);
-  const style6 = useLetterAnimation(6);
-
-  const letterStyles = [style0, style1, style2, style3, style4, style5, style6];
+  const letterStyles = Array.from(
+    { length: 7 },
+    (_, i) => useLetterAnimation(i) // eslint-disable-line react-hooks/rules-of-hooks
+  );
 
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     const prepareSplashScreen = async () => {
       await SplashScreen.preventAutoHideAsync();
-      setTimeout(async () => {
+      timeoutId = setTimeout(async () => {
         await SplashScreen.hideAsync();
       }, 3000);
     };
 
     prepareSplashScreen();
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
